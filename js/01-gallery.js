@@ -10,12 +10,18 @@ const refs = {
 let creatGalleryPreview = ""; 
 let creatGalleryOriginal = ""; 
 for (let item of galleryItems) {
-    creatGalleryPreview += (`<li><img src=${item.preview} alt="${item.description}" width="340"/></li>`)
+    creatGalleryPreview += 
+    (`<li><img src=${item.preview} alt="${item.description}" width="340"/></li>`)
 }
 
 refs.galleryListEl.insertAdjacentHTML('afterbegin', creatGalleryPreview);
 
 refs.galleryListEl.addEventListener("click", vievFullImage);
+
+refs.galleryListEl.style.display = 'flex';
+refs.galleryListEl.style.flexWrap = 'wrap';
+refs.galleryListEl.style.gap = '10px';
+refs.galleryListEl.style.listStyle = 'none';
 
 function vievFullImage(ev) {
     // console.log(refs.galleryListEl.children);
